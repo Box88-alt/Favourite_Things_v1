@@ -1,0 +1,117 @@
+<!DOCTYPE html> 
+
+<html lang="en">  
+
+<head> <!-- this is displayed on the tab --> 
+
+<meta charset="UTF-8"> <!-- declares character encoding? necessary -->
+
+<!-- <link rel="stylesheet" href="favourite_things_style_doc.css"> -->
+
+<title>Some of My Favourite Things</title>
+
+<!-- This version of the favourite_things_html_doc is for testing creating an html doc for each h2 and related elements, and linking them together to create multiple pages within website -->
+
+<style> /*using Internal CSS instead*/
+
+body{
+margin: 0;
+display: flex;
+}
+
+.blissBg{
+width: 100vw;
+height: 100vh;
+}
+
+.brownDoor{
+width: 5.8vw;
+position: absolute;
+bottom: 26.7vh;
+left: 84.9vw;
+z-index: 2; 
+}
+
+#blackEntr{
+width: 7.3vw; 
+position: absolute;
+bottom: 26.7vh;
+left: 89vw;
+z-index: 1;
+}
+
+.descript{
+background: yellow;
+width: 11.7vw;
+height: 11.7vw; 
+position: absolute; 
+bottom: 26.7vh;
+left: 84.9vw;
+}
+
+/*#text{
+position: absolute;
+min-width: 300px;
+font-size: 0.6rem;
+font-weight: 300; /*400 is normal, 700 is bold*/
+}
+
+#line{
+position: absolute;
+background: black;
+width: 3vw;
+height: 1px;
+transform: rotate(70deg);
+}*/
+
+.pink{
+position: absolute;
+width: 50px;
+height: 50px;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<img class="blissBg" src="Pages/Images/modifiedBlissBg.jpg" alt="Bliss background with main web title over it">
+
+<img class="brownDoor" src="Pages/Images/brownDoor.png" alt="open brown door">
+
+<img id="blackEntr" src="Pages/Images/blackEntrance.png" alt="dark entrance">
+
+<!-- <div class="descript"></div> -->
+
+<!-- <div id="text">This is a little website about some of my favourite things.</div>
+<div id="line"></div> -->
+
+<script>
+
+//CHANGE DOOR IMG
+
+const imgEl = document.getElementById('blackEntr');
+console.log(imgEl.src);
+
+imgEl.addEventListener('mouseenter', ()=>{
+imgEl.src = 'Pages/Images/blackEntranceGreenPurp.png';
+});
+
+imgEl.addEventListener('mouseleave', ()=>{
+imgEl.src = 'Pages/Images/blackEntrance.png';
+});
+
+imgEl.addEventListener('click', ()=>{
+open('Pages/h2_Angels_html_doc.htm', '_self');
+});
+
+</script>
+
+</body>
+
+</html>
+
+
+
