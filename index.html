@@ -17,6 +17,7 @@
 body{
 margin: 0;
 display: flex;
+overflow: hidden;
 }
 
 .blissBg{
@@ -25,7 +26,7 @@ height: 100vh;
 }
 
 .brownDoor{
-width: 5.8vw;
+width: max(50px, 5.8vw);
 position: absolute;
 bottom: 26.7vh;
 left: 84.9vw;
@@ -33,11 +34,12 @@ z-index: 2;
 }
 
 #blackEntr{
-width: 7.3vw; 
+width: max(63px, 7.3vw); 
 position: absolute;
 bottom: 26.7vh;
 left: 89vw;
 z-index: 1;
+/*border: 2px solid red;*/
 }
 
 .descript{
@@ -47,27 +49,37 @@ height: 11.7vw;
 position: absolute; 
 bottom: 26.7vh;
 left: 84.9vw;
+display: flex;
 }
 
-/*#text{
+.descriptOuterBox{
+/*background: pink;*/
+width: 30vw;
+height: max(150px, 14vw);
 position: absolute;
-min-width: 300px;
+right: 0px;
+bottom: 26.7vh;
+}
+
+#text{
 font-size: 0.6rem;
-font-weight: 300; /*400 is normal, 700 is bold*/
+font-weight: 300;
+/*border: 2px solid red;*/
+height: fit-content;
+min-width: 130px;
+text-align: center;
+visibility: hidden;
 }
 
 #line{
 position: absolute;
+margin-top: max(10px, 3%);
+margin-left: 70%;
 background: black;
-width: 3vw;
+width: clamp(12px, 5%, 18px);
 height: 1px;
 transform: rotate(70deg);
-}*/
-
-.pink{
-position: absolute;
-width: 50px;
-height: 50px;
+visibility: hidden;
 }
 
 </style>
@@ -83,10 +95,12 @@ height: 50px;
 
 <img id="blackEntr" src="Pages/Images/blackEntrance.png" alt="dark entrance">
 
-<!-- <div class="descript"></div> -->
+<div class="descriptOuterBox">
+<div id="text">This is a little website about some of my favourite things.</div>
+<div id="line"></div> 
+</div>
 
-<!-- <div id="text">This is a little website about some of my favourite things.</div>
-<div id="line"></div> -->
+<!-- <div class="descript"> --!>
 
 <script>
 
@@ -95,12 +109,19 @@ height: 50px;
 const imgEl = document.getElementById('blackEntr');
 console.log(imgEl.src);
 
+const textEl = document.getElementById('text');
+const lineEl = document.getElementById('line');
+
 imgEl.addEventListener('mouseenter', ()=>{
 imgEl.src = 'Pages/Images/blackEntranceGreenPurp.png';
+textEl.style.visibility = 'visible';
+lineEl.style.visibility = 'visible';
 });
 
 imgEl.addEventListener('mouseleave', ()=>{
 imgEl.src = 'Pages/Images/blackEntrance.png';
+textEl.style.visibility = 'hidden';
+lineEl.style.visibility = 'hidden';
 });
 
 imgEl.addEventListener('click', ()=>{
